@@ -1,5 +1,0 @@
-riscv-*
-testo
-tests/*.hex
-tests/*.state
-tests/*.o
