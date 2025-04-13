@@ -19,7 +19,7 @@ Ce projet propose une implémentation en C d’un **assembleur** et d’un **ém
 Assurez-vous d’avoir les éléments suivants installés sur votre machine :
 
 ### Outils système
-- `gcc` – Compilateur C
+- `gcc` & `clang` – Compilateurs C
 - `make` – Outil d’automatisation de la compilation
 - `python3` – Pour les tests
 - `pytest` – (optionnel) pour exécuter `test.py`
