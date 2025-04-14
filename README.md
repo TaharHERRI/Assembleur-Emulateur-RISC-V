@@ -14,9 +14,9 @@ Ce projet propose une implémentation en C d’un **assembleur** et d’un **ém
 
 ---
 
-##️ Prérequis
+## Prérequis
 
-Assurez-vous d’avoir les éléments suivants installés sur votre machine :
+Assurez-vous d’avoir les éléments suivants installés sur votre machine linux :
 
 ### Outils système
 - `riscv64-elf-gcc` & `clang` & `clang-14` – Compilateurs C
