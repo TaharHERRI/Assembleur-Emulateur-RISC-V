@@ -135,7 +135,7 @@ Cela crée une archive `../HerriTahar_LeBerreNathan.tgz` contenant tout le proje
 
 - Le projet supporte un sous-ensemble des instructions RISC-V, adapté à un usage éducatif.
 
-Voici la **liste des instructions réellement prises en charge** (extraites des commentaires à la fin de chaque ligne) :
+Voici la **liste des instructions réellement prises en charge** :
 
 ### Instructions supportées
 - `bge`
