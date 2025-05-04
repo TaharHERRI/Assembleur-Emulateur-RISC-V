@@ -1,66 +1,65 @@
-# Assembleur et Émulateur RISC-V
+# RISC-V Assembler and Emulator
 
-Ce projet propose une implémentation en C d’un **assembleur** et d’un **émulateur** pour un sous-ensemble du jeu d’instructions **RISC-V**. Il permet :
+This project is a **first-year engineering school student project**, implemented in C. It features both an **assembler** and an **emulator** for a subset of the **RISC-V instruction set architecture**. It allows:
 
-- d'assembler des programmes écrits en assembleur RISC-V en fichiers binaires ou hexadécimaux,
-- d’exécuter ces programmes dans un environnement émulé.
+- assembling RISC-V assembly programs into binary or hexadecimal files,
+- executing those programs in an emulated environment.
 
 ---
 
-## Auteurs
+## Authors
 
 - Herri Tahar  
 - Le Berre Nathan
 
 ---
 
-## Prérequis
+## Prerequisites
 
-Assurez-vous d’avoir les éléments suivants installés sur votre machine linux :
+Make sure you have the following installed on your Linux system:
 
-### Outils système
-- `riscv64-elf-gcc` & `clang` & `clang-14` – Compilateurs C
-- `llvm-14` & `llvm-14-tools` - Pour objcopy
-- `make` – Outil d’automatisation de la compilation
-- `python3` – Pour les tests
-- `pytest` – pour exécuter `test.py`
-
+### System Tools
+- `riscv64-elf-gcc`, `clang`, and `clang-14` – C compilers  
+- `llvm-14` & `llvm-14-tools` – Required for `objcopy`  
+- `make` – Compilation automation tool  
+- `python3` – For running tests  
+- `pytest` – To run `test.py`
 
 ---
 
-## Installation et compilation
+## Installation and Compilation
 
-Clonez ou téléchargez le projet, puis compilez les deux composants principaux :
+Clone or download the project, then compile the two main components:
 
 ```bash
 make
 ```
 
-Cela génère deux exécutables à la racine du projet :
-- `riscv-assembler` : assembleur RISC-V
-- `riscv-emulator` : émulateur RISC-V
+This generates two executables at the project root:
+- `riscv-assembler` – the RISC-V assembler
+- `riscv-emulator` – the RISC-V emulator
 
 ---
 
-## Structure du projet
+## Project Structure
 
 ```
 Assembleur-Emulateur-RISC-V/
-├── assembler/           # Code source de l'assembleur
-├── emulator/            # Code source de l'émulateur
-├── tests/               # Dossier contenant les tests
-├── test.py              # Script Python de test
-├── Makefile             # Script de compilation
-└── README.md            # Ce fichier
+├── assembler/           # Assembler source code
+├── emulator/            # Emulator source code
+├── tests/               # Folder containing test cases
+├── test.py              # Python test script
+├── Makefile             # Build script
+└── README.md            # This file
 ```
 
 ---
 
-## Utilisation
+## Usage
 
-### 1. Écrire un programme assembleur
+### 1. Write an Assembly Program
 
-Créez un fichier `exemple.s` contenant du code RISC-V, par exemple :
+Create a file `example.s` with RISC-V code, for example:
 
 ```asm
 li x1, 5
@@ -68,76 +67,73 @@ li x2, 10
 add x3, x1, x2
 ```
 
-### 2. Assembler le programme
+### 2. Assemble the Program
 
-Utilisez l'assembleur pour traduire ce code :
-
-```bash
-./riscv-assembler exemple.s
-```
-
-Ce programme produit un ou plusieurs des fichiers suivants :
-- `exemple.hex` : représentation hexadécimale pour l’émulateur
-- `exemple.bin` : version binaire
-- `exemple.state` : état initial du système
-
-
-### 3. Exécuter le programme avec l’émulateur
-
-Une fois assemblé, le fichier `.hex` peut être exécuté avec :
+Use the assembler to translate the code:
 
 ```bash
-./riscv-emulator exemple.hex
+./riscv-assembler example.s
 ```
 
-L’émulateur charge le fichier, exécute les instructions et peut :
-- afficher l’état des registres ou de la mémoire,
-- générer un fichier `.state` avec l’état final du système.
+This will produce one or more of the following files:
+- `example.hex` – hexadecimal representation for the emulator
+- `example.bin` – binary version
+- `example.state` – initial system state
+
+### 3. Run the Program with the Emulator
+
+Once assembled, the `.hex` file can be executed with:
+
+```bash
+./riscv-emulator example.hex
+```
+
+The emulator loads the file, executes the instructions, and can:
+- display the state of registers or memory,
+- generate a `.state` file with the final system state.
 
 ---
 
-## Tests
+## Testing
 
-Le projet contient un script de test automatisé :
+The project includes an automated testing script:
 
 ```bash
 make test
 ```
 
-Cela exécute `test.py` avec `pytest` pour tester l’assembleur et l’émulateur avec différents fichiers dans le dossier `tests/`.
+This runs `test.py` using `pytest` to test the assembler and emulator with different files in the `tests/` folder.
 
 ---
 
-## Nettoyage
+## Cleaning
 
-Supprimer les fichiers générés :
+To remove generated files:
 
 ```bash
-make clean        # Nettoyage des fichiers compilés et temporaires de test
-make cleanall     # Nettoyage complet (inclut les exécutables et les caches Python)
+make clean        # Removes compiled and temporary test files
+make cleanall     # Full cleanup (includes executables and Python caches)
 ```
 
 ---
 
-## Création d’une archive
+## Creating an Archive
 
-Pour créer une archive `.tgz` du projet :
+To create a `.tgz` archive of the project:
 
 ```bash
 make tar
 ```
 
-Cela crée une archive `../HerriTahar_LeBerreNathan.tgz` contenant tout le projet, après nettoyage.
+This generates a `../HerriTahar_LeBerreNathan.tgz` archive containing the full project, after cleanup.
 
 ---
 
-## Remarques
+## Notes
 
-- Le projet supporte un sous-ensemble des instructions RISC-V, adapté à un usage éducatif.
+- The project supports a subset of the RISC-V instructions, tailored for educational purposes.
 
-Voici la **liste des instructions réellement prises en charge** :
-
-### Instructions supportées
+### Supported Instructions
 - `bge`
 - `mv`
 - `beq`
@@ -151,6 +147,3 @@ Voici la **liste des instructions réellement prises en charge** :
 - `blt`
 - `bne`
 - `jal`
-
-
----
